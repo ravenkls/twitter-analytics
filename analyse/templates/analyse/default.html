@@ -1,0 +1,123 @@
+{% load static %}
+
+<html>
+    <head>
+        <title>Twitter Opinions</title>
+        <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+        <link rel="icon" href="http://www.iconarchive.com/download/i82970/limav/flat-gradient-social/Twitter.ico">
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js" type="text/javascript"></script>
+        <script src="https://use.fontawesome.com/e8d97b57d3.js"></script>
+        <link rel = "stylesheet" href = "{% static 'analyse/bulma.css' %}">
+        <link rel = "stylesheet" href = "{% static 'analyse/style.css' %}">
+
+        <script>
+            var examples_default = ["Politics",
+                                    "A new game",
+                                    "An upcoming film",
+                                    "Twitter Opinions",
+                                    "Anything you want",
+                                    "Knives",
+                                    "My name",
+                                    "My friend's name",
+                                    "The government",
+                                    "Halloween",
+                                    "Christmas",
+                                    "Religion",
+                                    "Food",
+                                    "Oranges",
+                                    "Bananas",
+                                    "McDonalds",
+                                    "Burger King",
+                                    "Python 3.6"]
+            var examples = examples_default
+            function placeholder(){
+                var i = Math.floor(Math.random()*examples.length);
+                var txt = examples[i];
+                
+                var timeOut;
+                try{
+                    var txtLen = txt.length;
+                }catch(TypeError){
+                    examples.concat(examples_default)
+                    var i = Math.floor(Math.random()*examples.length);
+                    var txt = examples[i];
+                    examples.splice(i, 1);
+                    var txtLen = txt.length;
+                }
+                
+                var char = 0;
+                $('.input').attr('placeholder', '');
+                (function typeIt() {
+                var humanize = Math.round(Math.random() * (300 - 30)) + 30;
+                timeOut = setTimeout(function () {
+                    char++;
+                    var type = txt.substring(0, char);
+                    $('.input').attr('placeholder', type);
+                    typeIt();
+
+                    if (char == txtLen) {
+                        clearTimeout(timeOut);
+                    }
+
+                }, humanize);
+                })();
+            };
+            placeholder()
+            setInterval(function(){
+                $(".input").attr("placeholder", "")
+                placeholder()
+            }, 4000);
+        </script>
+
+        <!-- HIDDEN MENU -->
+        <script>
+            var sideMenuOut = false
+            function showmenu(){
+                if (sideMenuOut == false){
+                    $(".content").fadeOut(100);
+                    setTimeout(function(){
+                        $("#help-a").css("color", "#000");
+                        $(".sidemenu").animate({width: "100vw"}, 500);
+                    }, 100);
+                    sideMenuOut = true
+                }else{
+                    $("#help-a").css("color", "#fff");
+                    $(".sidemenu").animate({width: "0"}, 500);
+                    setTimeout(function(){
+                        $(".content").fadeIn(100);
+                    }, 500);
+                    sideMenuOut = false
+                }
+                
+            }
+        </script>
+        <!-- HIDDEN MENU -->
+
+    </head>
+    <body style="background: url({% static 'analyse/bg.jpg' %});">
+        <div class = "helpbtn"><a id="help-a" onclick="showmenu()"><i class="fa fa-question-circle fa-2x" aria-hidden="true"></i></a></div>
+        <div class="sidemenu">
+            <div class="containing-table">
+                <div class="centre-align">
+                    <center>
+                        <div class="content2">
+                            <i style = "color: #00aced;" class="fa fa-twitter fa-4x" aria-hidden="true"></i>
+                            <h1>What is Twitter Opinions?</h1>
+                            <p>Twitter opinions is a simple program which allows you to enter a topic of your choice and then find out what other people think! Created with Python 3.6.2,
+                            you can gather hundreds of tweets in only a few seconds and see if they have an overall positive, mixed or negative opinion on whatever you want! <a onclick = "showmenu()">Try it out now!</a></p>
+                        </div>
+                    </center>
+                </div>
+            </div>
+        </div>
+
+        {% block content %}
+        {% endblock %}
+
+        <footer>
+            <span style = "float: left;">&copy KRISTIAN SMITH 2017</span>
+            <span style = "float: right;">MADE WITH DJANGO 2.0</span>
+        </footer>
+    </body>
+</html>

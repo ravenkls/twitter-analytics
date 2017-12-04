@@ -1,0 +1,31 @@
+{% extends "analyse/default.html" %}
+
+{% block content %}
+        <div class="containing-table">
+            <div class="centre-align">
+                <div class="content">
+                    <div class="box">
+                    <h1><i class="fa fa-twitter fa-lg" aria-hidden="true"></i> Twitter Opinions</h1>
+
+                <form action="search" method="get" id="form_hide" >
+                            <div class="field has-addons">
+                                <div class="control" id = "queryInput">
+                                    <input type="text" class="input">
+                                </div>
+                                <div class="control">
+                                    <input type="submit" value="Search" class="button sbmt" onclick="submitted()">
+                                </div>
+                            </div>
+
+                    </div>
+                </form>
+                </div>
+                <center>
+                <div class="progress" id="pbar">
+                          <div class="indeterminate"></div>
+                        </div>
+                    </center>
+                </div>
+            </div>
+        </div>
+{% endblock %}

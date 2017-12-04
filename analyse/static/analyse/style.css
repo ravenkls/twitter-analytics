@@ -1,0 +1,248 @@
+body, html{
+	font-family: Pacifico;
+	background-size: cover;
+	width: 100%;
+  overflow: hidden;
+}
+
+::-webkit-scrollbar { 
+    display: none; 
+}
+
+input{
+	font-family: Pacifico;
+}
+
+.containing-table {
+    display: table;
+    width: 100%;
+    height: 100%;
+}
+
+.results{
+  color: #fff;
+  font-family: Arial;
+  padding-bottom: 20px;
+}
+
+.hidden{
+	display: none;
+}
+
+.trans{
+	opacity: 0;
+	transition: 0.3s;
+}
+
+/* Progress Bar */
+.progress {
+  position: relative;
+  height: 4px;
+  display: block;
+  width: 100%;
+  background-color: #acece6;
+  background-clip: padding-box;
+  margin: 0.5rem 0 1rem 0;
+  overflow: hidden; }
+  .progress .determinate {
+    position: absolute;
+    background-color: inherit;
+    top: 0;
+    bottom: 0;
+    background-color: #26a69a;
+    transition: width .3s linear; }
+  .progress .indeterminate {
+    background-color: #26a69a; }
+    .progress .indeterminate:before {
+      content: '';
+      position: absolute;
+      background-color: inherit;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      will-change: left, right;
+      -webkit-animation: indeterminate 2.1s cubic-bezier(0.65, 0.815, 0.735, 0.395) infinite;
+              animation: indeterminate 2.1s cubic-bezier(0.65, 0.815, 0.735, 0.395) infinite; }
+    .progress .indeterminate:after {
+      content: '';
+      position: absolute;
+      background-color: inherit;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      will-change: left, right;
+      -webkit-animation: indeterminate-short 2.1s cubic-bezier(0.165, 0.84, 0.44, 1) infinite;
+              animation: indeterminate-short 2.1s cubic-bezier(0.165, 0.84, 0.44, 1) infinite;
+      -webkit-animation-delay: 1.15s;
+              animation-delay: 1.15s; }
+
+@-webkit-keyframes indeterminate {
+  0% {
+    left: -35%;
+    right: 100%; }
+  60% {
+    left: 100%;
+    right: -90%; }
+  100% {
+    left: 100%;
+    right: -90%; } }
+@keyframes indeterminate {
+  0% {
+    left: -35%;
+    right: 100%; }
+  60% {
+    left: 100%;
+    right: -90%; }
+  100% {
+    left: 100%;
+    right: -90%; } }
+@-webkit-keyframes indeterminate-short {
+  0% {
+    left: -200%;
+    right: 100%; }
+  60% {
+    left: 107%;
+    right: -8%; }
+  100% {
+    left: 107%;
+    right: -8%; } }
+@keyframes indeterminate-short {
+  0% {
+    left: -200%;
+    right: 100%; }
+  60% {
+    left: 107%;
+    right: -8%; }
+  100% {
+    left: 107%;
+    right: -8%; } }
+
+footer{
+	height: 20px;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	color: #eee;
+	box-shadow: 0px 0px 10px black;
+	font-family: Open Sans;
+	padding: 2px;
+	font-size: 12px;
+	width: 100%;
+	background: #222;
+}
+
+#pbar{
+	height: 0px;
+	margin: 0;
+	position: absolute
+	bottom: 0px;
+	max-width: 470px;
+}
+
+#form_hide{
+	overflow: hidden;
+}
+
+#reset{
+	opacity: 0;
+	height: 0px;
+}
+
+a{
+	text-decoration: underline;
+	color: #000;
+}
+
+.helpbtn{
+	position: absolute;
+	top: 0;
+	padding: 4px;
+	right: 0;
+	z-index: 100;
+	margin: 0;
+	opacity: 0.2;
+}
+
+.helpbtn a{
+	color: #fff;
+}
+
+.sidemenu{
+	width: 0px;
+	height: 100%;
+	float: right;
+	background: #fff;
+	opacity: 0.8;
+}
+
+.centre-align {
+    padding: 10px;
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.content2 h1{
+	font-family: Pacifico;
+	font-size: 3em;
+	padding: 0px;
+	margin-top: 0px;
+	color: #00aced;
+}
+
+.content2{
+	margin-top: -200px;
+	text-align: center;
+	width: 700px;
+	max-width: 90vw;
+	font-family: "Courier New";
+	color: #000;
+}
+
+.content h1{
+	color: #fff;
+	padding: 0px;
+	margin-top: 0px;
+}
+.content ul{
+	list-style-type: none;
+	text-align: center;
+}
+.sbmt{
+	margin-left: 5px;
+}
+.content {
+	position: relative;
+	z-index: 9999;
+	min-height: 146px;
+	max-width: 470px;
+	display: inline-block;
+	text-align: center;
+}
+
+.button, .button:hover, .button:link, .button:active, .button:visited{
+	color: #00aced !important;
+}
+
+.box{
+	border-radius: 0px;
+	overflow: hidden;
+	margin-top: -20px;
+	box-shadow: 0px 0px 50px #000;
+	padding: 20px;
+	padding-left: 5vw;
+	padding-right: 5vw;
+	background: #00aced;
+    display: inline-block;
+    vertical-align: top; /* Removes the extra white space below the baseline */
+    margin-bottom: 0 !important;
+}
+
+#results{
+	font-family: "Courier New";
+	font-size: 1em;
+	font-weight: bolder;
+	height: 0px;
+	overflow: hidden;
+	color: #fff;
+}
