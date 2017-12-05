@@ -7,6 +7,7 @@ from collections import Counter, defaultdict
 import itertools
 import re
 from nltk.corpus import stopwords
+import nltk
 from operator import itemgetter
 from pprint import pprint
 import random
