@@ -8,10 +8,9 @@ def index(request):
     return HttpResponse(template.render(request=request))
 
 
-def search(request, query):
+def search(request):
     template = loader.get_template('analyse/search.html')
-    print("test")
+    query = request.POST.get("q")
     response = twitter.scrape(query)
-    print("Test")
     context = {"information": response}
     return HttpResponse(template.render(context=context, request=request))

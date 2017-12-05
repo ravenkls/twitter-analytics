@@ -7,10 +7,11 @@
                     <div class="box">
                     <h1><i class="fa fa-twitter fa-lg" aria-hidden="true"></i> Twitter Opinions</h1>
 
-                <form action="search" method="get" id="form_hide" >
+                <form action="search" method="post" id="form_hide" >
+                    {% csrf_token %}
                             <div class="field has-addons">
                                 <div class="control" id = "queryInput">
-                                    <input type="text" class="input">
+                                    <input name = "q" type="text" class="input">
                                 </div>
                                 <div class="control">
                                     <input type="submit" value="Search" class="button sbmt" onclick="submitted()">
