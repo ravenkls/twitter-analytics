@@ -9,8 +9,11 @@ def index(request):
 
 
 def search(request):
-    template = loader.get_template('analyse/search.html')
-    query = request.POST.get("q")
-    response = twitter.scrape(query)
-    context = {"information": response}
-    return HttpResponse(template.render(context=context, request=request))
+    if request.method == "POST":
+        template = loader.get_template('analyse/search.html')
+        query = request.POST.get("q")
+        response = twitter.scrape(query)
+        context = {"information": response}
+        return HttpResponse(template.render(context=context, request=request))
+    elif request.method == "GET":
+        return index(request)
