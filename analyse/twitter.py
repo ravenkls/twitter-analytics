@@ -161,8 +161,8 @@ def scrape(searchq):
     scraper = TwitterScraper()
     try:
         tweets = scraper.search(searchq, limit=50)
-    except tweepy.error.TweepError:
-        return ["Too many requests, please try again a few minutes"]
+    except tweepy.error.TweepError as e:
+        return [str(e)]
 
     sentiment = scraper.test_sentiment(tweets)
     if not sentiment:
