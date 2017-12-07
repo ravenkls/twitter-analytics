@@ -167,4 +167,10 @@ def scrape(searchq):
     sentiment = scraper.test_sentiment(tweets)
     if not sentiment:
         return ["Could not find any tweets for {}".format(searchq)]
+    elif sentiment[3] < 0.7:
+        sentiment[3] = "Overall view of {} is negative".format(searchq)
+    elif sentiment[3] > 1.3:
+        sentiment[3] = "Overall view of {} is positive".format(searchq)
+    else:
+        sentiment[3] = "Overall view of {} is mixed".format(searchq)
     return sentiment
