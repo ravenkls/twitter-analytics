@@ -109,7 +109,6 @@ class TwitterScraper:
         neutral_tweets = []
         overall_positive = 0
         overall_negative = 0
-        print("~ {} tweets in total ~".format(len(tweets)))
         for t in tweets:
             positive = False
             negative = False
@@ -163,15 +162,9 @@ def scrape(searchq):
     try:
         tweets = scraper.search(searchq, limit=50)
     except tweepy.error.TweepError:
-        print("Too many requests, please try again a few minutes")
+        return ["Too many requests, please try again a few minutes"]
+
     sentiment = scraper.test_sentiment(tweets)
     if not sentiment:
-        quit()
-    elif sentiment[3] < 0.7:
-        sentiment.append("Overall view of {} is negative".format(searchq))
-    elif sentiment[3] > 1.3:
-        sentiment.append("Overall view of {} is positive".format(searchq))
-    else:
-        sentiment.append("Overall view of {} is mixed".format(searchq))
-    del sentiment[3]
+        return ["Could not find any tweets for {}".format(searchq)]
     return sentiment
