@@ -17,4 +17,3 @@ representation of what people's opinions are
 ## Screenshots
 
 ![Homepage](https://thumb.gyazo.com/thumb/800_w/_a4881dbeb4fd5ee435503b01325efabc-gif)
-![Example Query](https://i.gyazo.com/5a3624c3f0d136604a9d6a56a941fdd4.jpg)
