@@ -9,6 +9,11 @@ negative words.
 Note: The sentiment analysis techniques used are incredibly basic and will not give a true
 representation of what people's opinions are
 
+## What I learnt
+ - Using NLTK to process qualitative data
+ - Using a simple 'bag of words' model for sentiment analysis
+ - Using the Twitter API to gather data quickly
+
 ## Features
 * Accounting for double negatives
 * Visually pleasing CSS and JS transitions
